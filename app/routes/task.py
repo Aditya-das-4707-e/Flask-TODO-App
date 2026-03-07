@@ -1,3 +1,4 @@
+from docutils.nodes import Titular
 from flask import Blueprint, render_template, request, redirect, url_for, flash, session
 from app import db
 from app.models import Task
@@ -18,4 +19,6 @@ def add_task():
         return redirect(url_for('auth.login'))
     
     title = request.form.get('title')
-    
+    if title:
+        new_task = Task(title=title, user_id=session['user_id'])
+        
