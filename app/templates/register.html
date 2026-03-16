@@ -1,5 +1,19 @@
 {% extends "base.html" %}
 {% block title %}Register{% endblock %}
 {% block content %}
-<p>Registration soon ...........</p>
-{% end block %}
+<div class="login-box">
+    <h2>Register</h2>
+    <form method="post">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <button type="submit" class="btn">Register</button>
+    </form>
+    <p style="text-align: center; margin-top: 20px;">Already have an account? <a href="{{ url_for('auth.login') }}" style="color: var(--neon-blue);">Login here</a></p>
+</div>
+{% endblock %}

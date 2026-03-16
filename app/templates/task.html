@@ -7,7 +7,7 @@
         <input type="text" name="task" id="task" required>
         <button type="submit">Add Task</button>
     </form>
-    {% if task %}
+    {% if tasks %}
     <form action="{{ url_for('task.clear_task') }}" method="POST" class="task-form">
         <button type="submit">Clear All Task</button>
     </form>
@@ -24,7 +24,7 @@
             {% for task in tasks %}
             <tr>
                 <td>{{ loop.index }}</td>
-                <td>{{ loop.title }}</td>
+                <td>{{ task.title }}</td>
                 <td>
                     <span class="badge {{ task.status | lower }} ">{{ task.status }}</span>
                 </td>

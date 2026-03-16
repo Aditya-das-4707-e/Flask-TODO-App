@@ -1,0 +1,24 @@
+# Virtual environment
+myenv/
+env/
+venv/
+.env
+
+# __pycache__ and python artifacts
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Database instances
+instance/
+*.db
+*.sqlite3
+
+# Git
+.git/
+.gitignore
+
+# Temp
+temp_output.html
+cookies.txt

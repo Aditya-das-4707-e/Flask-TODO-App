@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} TO-DO App {% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
         <div class="container">
             <h1>TO-DO App</h1>
             <nav>
-                <a href="{% url 'task.view_tasks' %}">Home</a>
+                <a href="{{ url_for('task.view_tasks') }}">Home</a>
                 {% if 'user' in session %}
-                <a href="{% url 'auth.logout' %}">Logout</a>
+                <a href="{{ url_for('auth.logout') }}">Logout</a>
                 {% else %}
-                <a href="{% url 'auth.login' %}">Login</a>
+                <a href="{{ url_for('auth.login') }}">Login</a>
+                <a href="{{ url_for('auth.register') }}">Register</a>
                 {% endif %}
 
             </nav>

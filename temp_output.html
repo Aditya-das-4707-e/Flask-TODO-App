@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>TO-DO App</h1>
+            <nav>
+                <a href="/">Home</a>
+                
+                <a href="/logout">Logout</a>
+                
+
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        
+            
+                <div class="flash success">Login successful</div>
+            
+                <div class="flash success">Task added successfully</div>
+            
+        
+        
+<div class="task-box">
+    <h2>Your task</h2>
+    <form action="/add" method="POST" class="task-form">
+        <input type="text" name="task" id="task" required>
+        <button type="submit">Add Task</button>
+    </form>
+    
+    <p>No task found</p>
+    
+</div>
+
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 TO-DO App. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
