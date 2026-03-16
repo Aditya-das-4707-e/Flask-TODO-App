@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Task{% endblock %}
+{% block content %}
+<div class="task-box">
+    <h2>Your task</h2>
+    <form action="{{ url_for('task.add_task') }}" method="POST" class="task-form">
+        <input type="text" name="task" id="task" required>
+        <button type="submit">Add Task</button>
+    </form>
+    {% if task %}
+    <form action="{{ url_for('task.clear_task') }}" method="POST" class="task-form">
+        <button type="submit">Clear All Task</button>
+    </form>
+    <br>
+    <table class="task-table">
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Change</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for task in tasks %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ loop.title }}</td>
+                <td>
+                    <span class="badge {{ task.status | lower }} ">{{ task.status }}</span>
+                </td>
+                <td>
+                    <form action="{{ url_for('task.toggle_status', task_id=task.id) }}" method="post">
+                        <button class="btn-small" type="submit">Next</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No task found</p>
+    {% endif %}
+</div>
+{% endblock %}
